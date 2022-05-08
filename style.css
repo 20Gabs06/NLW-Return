@@ -1,0 +1,881 @@
+/*-----------------------Geral---------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  /*Primary colors */
+  --hue: 300;
+  --brand-green: hsl(var(--hue), 100%, 26%);
+  --green-light: hsl(calc(var(--hue) - 22), 23%, 89%);
+  --brand-beige: hsl(calc(var(--hue) - 39), 100%, 97%);
+  --brand-green-light: hsl(180, 14%, 97%);
+  --brand-gree-hover: hsl(var(--hue), 100%, 14%);
+
+
+
+  /*Secundary colors */
+  --paragraph: hsl(210, 9%, 31%);
+  --headline: hsl(210, 11%, 15%);
+
+  /*Ajuste no tamanho da font do site */
+  font-size: 62.5%;
+  /*1 rem = 10px*/
+
+  /*Variavel navtamanho*/
+  --height: 7.2rem;
+
+
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: var(--brand-green-light);
+
+
+
+}
+
+.wrapper {
+  width: min(50rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding-block: 10.0rem;
+}
+
+section header h2 {
+  font-size: 3.0rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+  margin-bottom: 6.0rem;
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  color: var(--brand-green);
+  margin-top: 4.1rem;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+section p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--paragraph);
+  margin-top: 2.4rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+body section button {
+  font-size: 1.4rem;
+  background-color: var(--brand-green);
+
+  width: 26.3rem;
+  height: 5.2rem;
+
+  border: none;
+  border-radius: 4rem;
+  margin: 3.2rem auto 0rem auto;
+
+
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+}
+
+section button:hover {
+  background-color: var(--brand-gree-hover);
+  border: rgb(139, 139, 139);
+}
+
+section button a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/*-----------------------------Colors of the website---------------*/
+nav .logo path[fill="#00856F"] {
+  fill: var(--brand-green);
+}
+
+nav#navigation button.open-menu svg path {
+  stroke: var(--brand-green);
+}
+
+nav#navigation.scroll button.open-menu svg path {
+  stroke: white;
+}
+
+#services .card circle {
+  fill: var(--brand-green-light)
+}
+
+a#bottomToTopButton svg circle {
+  fill: var(--brand-green);
+}
+
+section#contact ul svg path {
+  stroke: var(--brand-green);
+}
+
+
+a#bottomToTopButton.show svg circle {
+  fill: var(--brand-green);
+}
+
+
+/*------------------------- NAV -----------------------------------------*/
+
+nav {
+  display: flex;
+
+  height: var(--height);
+
+  position: fixed;
+  top: 0rem;
+  width: 100vw;
+  z-index: 100;
+}
+
+/*Problema não esta no nav em si, procure nas configurações que afetam o nav de algum jeito*/
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+
+}
+
+
+nav.scroll {
+  background-color: var(--brand-green);
+
+
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+
+
+nav button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+
+
+/*------------------------- MENU-EXPANDED-----------------------------------------*/
+
+body.menu-expanded> :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+
+
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: var(--brand-green);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--height);
+
+  transition: transform 300ms;
+  transform: translateY(0%);
+
+}
+
+
+
+.menu>ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: calc(1.5rem + var(--height));
+
+}
+
+.menu ul>li>a {
+  color: white;
+  text-decoration: none;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 2.4rem;
+
+}
+
+
+.menu .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #ffffff;
+  width: 27.4rem;
+  height: 5.5rem;
+
+  text-decoration: auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  font-family: 'DM Sans';
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+
+  margin-inline: auto;
+  margin-block: 4.8rem 8.0rem;
+
+  border: none;
+  border-radius: 4.0rem;
+}
+
+.menu .button:hover {
+  color: #ffffff;
+  border: 1px solid white;
+  background-color: var(--brand-green);
+}
+
+ul.social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+
+
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
+
+/*------------------------- Header -----------------------------------------*/
+
+#inicio::before {
+  /*pseudo-class no caso ((before === antes) de header) == header::before   */
+  content: "";
+  /*para determinar que essa pseudo-class tenha um conteudo, no caso null */
+  width: 100%;
+  height: calc(73% + var(--height));
+  display: block;
+  background-color: var(--green-light);
+
+  position: absolute;
+  /*a posição absoluto faz com que oque foi selecionado fique sobreposto*/
+  top: 0rem;
+  /*só é usado depois de position*/
+  left: 0rem;
+  /*só é usado depois de position*/
+  z-index: -1;
+  /*o z-index mexe na teceira dimenção do site, no caso a sobre posição dos objetos */
+}
+
+#inicio {
+  padding-top: calc(4.1rem + var(--height));
+}
+
+
+#inicio h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-top: 1.6rem;
+}
+
+
+#inicio img {
+  margin-top: 6.4rem;
+
+  display: block;
+  margin-inline: auto;
+
+  width: 26.3rem;
+  object-position: 0rem 2.0rem;
+}
+
+.stats {
+  width: 100%;
+  padding-block: 4.0rem;
+
+  background-color: var(--brand-green-light);
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6.0rem;
+
+
+  border: 1px solid var(--brand-green-light);
+  box-sizing: border-box;
+  border-radius: 6px;
+  box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.033);
+}
+
+
+
+
+div.stat h3 {
+  color: var(--headline);
+  font-size: 4.8rem;
+  line-height: 130%;
+
+}
+
+
+div.stat p {
+  line-height: 150%;
+  font-size: 1.6rem;
+  color: var(--brand-green);
+  margin: 0;
+  margin-top: 0.4rem;
+
+
+}
+
+
+
+
+
+
+/*-------------------------------------Services-------------------------------------------*/
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+
+#services header h4 {
+  font-size: 1.4rem;
+  color: var(--brand-green);
+  margin-top: 4.1rem;
+  font-weight: 700;
+  line-height: 150%;
+  margin-bottom: 1.6rem;
+}
+
+
+
+.card {
+  padding: 2.4rem;
+  text-align: left;
+
+  border: 1px solid var(--green-light);
+  border-radius: 0.6rem;
+
+  background-color: #ffffff;
+  box-shadow: 5px 5px 20px 5px hsla(0, 0%, 0%, 0.020);
+}
+
+.card h3 {
+  font-size: 24px;
+  line-height: 31px;
+  margin-top: 1.6rem;
+
+}
+
+.card p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
+  margin-top: 1.6rem;
+}
+
+
+
+/*------------------ABOUT---------------------------*/
+
+#about {
+  display: flex;
+  text-align: left;
+  background-color: var(--brand-beige);
+}
+
+#about header h4 {
+  margin-bottom: 1.6rem;
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  line-height: 150%;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 6.0rem;
+}
+
+/*--------------------------------Contact-------------------------------------------------*/
+
+section#contact {
+  background-color: #ffffff;
+  text-align: left;
+}
+
+section#contact .content {
+  display: flex;
+  flex-direction: column;
+
+}
+
+section#contact header h2 {
+  margin-bottom: 3.2rem;
+  line-height: 3.9rem;
+}
+
+
+section#contact .content li {
+  display: flex;
+  margin-bottom: 1.6rem;
+  gap: 0.8rem;
+}
+
+section#contact .content p {
+  margin-bottom: 1.6rem;
+  color: var(--paragraph);
+  line-height: 150%;
+}
+
+section#contact .content button {
+  margin-bottom: 6.0rem;
+
+}
+
+
+/*----------------------------Footer-------------------------------------------*/
+
+footer {
+  background-color: var(--brand-green);
+  display: flex;
+  text-align: left;
+}
+
+footer .logo {
+  margin-top: 6.0rem;
+  margin-bottom: 2.4rem;
+  display: inline-block;
+  width: 23.6 rem;
+  height: 3.1rem;
+
+}
+
+footer ul {
+  justify-content: left;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer .links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3.2rem;
+  margin-bottom: 6.0rem;
+}
+
+
+
+/*---------------------------Bottom To Top-------------------------------------*/
+
+#bottomToTopButton {
+  position: fixed;
+  bottom: 5rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 200ms;
+  transform: translateY(100%);
+}
+
+#bottomToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0)
+}
+
+/*------------------------RESPONSIVO---------------------------------*/
+
+@media (min-width:1024px) {
+
+  /*----Geral----*/
+  .wrapper {
+    width: min(112rem, 100%);
+    display: grid;
+
+  }
+
+  .col-a{
+    grid-area: A;
+  }
+
+  .col-b{
+    grid-area: B ;
+  }
+
+  /*----------NAV---------------*/
+  /*Reset*/
+
+  nav.navigation .wrapper {
+    padding: 0;
+  }
+
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    transform: initial;
+    display: initial;
+    position: initial;
+    visibility: initial;
+    opacity: initial;
+    flex-direction: initial;
+    font-size: initial;
+    color: initial;
+    background-color: initial;
+    font-weight: initial;
+    width: initial;
+    height: initial;
+    justify-content: initial;
+    align-items: initial;
+    gap: 0rem;
+
+    text-align: initial;
+    margin-inline: 0;
+    margin-block: 0;
+  }
+
+  nav#navigation .open-menu,
+  nav#navigation .close-menu,
+  nav#navgation div.divchata,
+  nav#navigation .social-links {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65%;
+
+  }
+
+
+  nav#navigation .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  nav#navigation .menu ul li a {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    color: var(--brand-green);
+    opacity: 0.6;
+  }
+
+  nav#navigation .menu a.button {
+    color: var(--brand-green);
+    border: 0.1rem solid var(--brand-green);
+    border-radius: 4.0rem;
+    padding: 1.0rem 2.4rem;
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#navigation .menu a.button:hover {
+    background-color: var(--brand-green);
+    color: #ffffff;
+  }
+
+  nav#navigation.scroll .menu ul li a {
+    color: var(--brand-green-light);
+    opacity: 0.6;
+  }
+
+  nav#navigation.scroll .menu a.button {
+    border: 1px solid #FFFFFF;
+    color: #ffffff;
+  }
+
+  nav#navigation.scroll .menu a.button:hover {
+    background-color: #FFFFFF;
+    color: var(--brand-green);
+  }
+
+
+  nav#navgation .menu li a {
+    transition: opacity .4s;
+  }
+
+  nav#navigation .menu ul li a.active,
+  nav#navigation .menu ul li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+
+  nav#navigation .menu ul li a::after {
+    content: '';
+    width: 0%;
+    height: 0.2rem;
+    background-color: var(--brand-green);
+
+    position: relative;
+    bottom: -2.5rem;
+    left: -1.25rem;
+    display: block;
+
+    transition: width 0.2s;
+  }
+
+
+  nav#navigation .menu ul li a.active::after,
+  nav#navigation .menu li a:hover::after {
+    width: 100%;
+    padding-inline: 1.2rem;
+    background-color: var(--brand-green);
+  }
+
+  nav#navigation.scroll .menu li a.active::after,
+  nav#navigation.scroll .menu li a:hover::after {
+    width: 100%;
+    padding-inline: 1.2rem;
+    background-color: #ffffff;
+  }
+
+  /*--------------------INICIO-------------------  */
+
+  #inicio {
+    padding-top:var(--height);
+  }
+
+  #inicio::before{
+    height: calc(87% - var(--height));
+  }
+
+  #inicio .wrapper {
+    grid-template-columns: 60.5rem 1fr;
+
+    grid-template-areas:
+      'A B'
+      'C C';
+  }
+
+  #inicio .col-a {
+   
+    text-align: left;
+    align-self: center;
+  }
+
+  #inicio h1 {
+    font-size: 52px;
+    line-height: 130%;
+  }
+
+  #inicio button {
+    margin-left: 0;
+  }
+
+
+
+  #inicio .col-b img{
+    width: 42rem;
+  }
+
+
+  #inicio .stats {
+    grid-area: C;
+    display: flex;
+    flex-direction: row;
+    padding: 6rem;
+    gap: 0;
+
+  }
+
+  #inicio .stats .stat+.stat {
+    border-left: 1px solid var(--brand-green);
+  }
+
+  #inicio .stats .stat {
+    flex: 1;
+  }
+
+  /*--------------------SERVICES-------------------  */
+
+  #services h2 {
+    font-size: 4rem;
+    width: 49.7rem;
+    margin-inline: auto;
+    
+  }
+
+  #services .content .cards {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #services .content .cards .card{
+    width:30%;
+    flex-grow: 1;
+    gap: 4rem;
+  }
+
+  /*--------------------ABOUT-------------------  */
+
+  #about .wrapper{
+    display: grid;
+    grid-template-areas:'B A' ;
+    grid-template-columns: 1fr 1fr ;
+    gap:6.7rem;
+
+  }
+
+  #about .col-a{
+    
+    align-self: center;
+
+
+  }
+
+  #about .col-b{
+    
+    
+    align-self: center;
+    
+  }
+
+   /*--------------------CONTACT-------------------  */
+
+      #contact .wrapper{
+        display: grid;
+        grid-template-areas: 'A B';
+        grid-template-columns: 1fr 1fr;
+        gap:14.1rem;
+        
+      }
+
+      #contact .col-a{
+        align-self: left;
+      }
+
+      #contact .col-a h2{
+        width: 40rem;
+        font-size: 4.0rem;
+        line-height: 5.2rem;
+      }
+
+      #contact .col-a button{
+        margin-left: 0;
+      }
+
+
+/*--------------------FOOTER-------------------  */
+      footer{
+        padding: 5rem;
+      }
+
+
+      footer .wrapper{
+        display: grid;
+        grid-template-areas: 'A B';
+        grid-template-columns: 1fr 1fr;
+        
+      }
+
+      footer .col-a{
+        align-self: center;
+      }
+
+      footer .col-b{
+        align-self: center;
+        justify-self: flex-end;
+        margin-top: 7rem;
+      }
+    }
